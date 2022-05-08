@@ -122,6 +122,7 @@ sudo umount ~/ntfs-volume
   #解压
   [root@localhost tmp]# tar -zvxf buodo.tar.gz 
   [root@localhost tmp]# tar -jvxf buodo.tar.bz2
+  [root@localhost tmp]# tar –xvf buodo.tar
   ```
 
 - gzip 
@@ -209,4 +210,126 @@ sudo umount ~/ntfs-volume
 ## 阮一峰的linux命令介绍 
 
 https://www.bookstack.cn/read/bash-tutorial/docs-archives-command.md
+
+
+
+## json处理
+
+https://hellogitlab.com/OS/Centos/json_tool_jq.html#_1-%E5%AE%89%E8%A3%85
+
+jq
+
+## 目录相关
+
+- 当前文件的目录
+
+  ```sh
+  cur_dir=$(dirname $(readlink -f "$0"))
+  ```
+
+- 当前目录
+
+  ```sh
+  `pwd`
+  ```
+
+
+
+## corntab
+
+
+
+
+
+## 查看系统版本
+
+```sh
+lsb_release -a
+```
+
+
+
+## 设置语言编码
+
+**准备工作1：**安装操作系统后设置系统的默认编码LANG="en_US.UTF-8"
+
+```sh
+vi /etc/sysconfig/i18n
+LANG="en_US.UTF-8"
+```
+
+准备工作2：修改vim的默认配置~/.vimrc，避免每次需要set enc=utf8
+
+```sh
+vim ~/.vimrc
+set encoding=utf-8
+```
+
+
+
+## 下载各种包
+
+rpm包下载地址，注意下载x86.64 centos版本的
+
+http://www.rpmfind.net/linux/rpm2html/search.php?query=openssl&submit=Search+...&system=&arch=
+
+```sh
+#安装glibc相关的库
+
+glibc-2.17-260.el7.x86_64.rpm
+glibc-common-2.17-260.el7.x86_64.rpm
+glibc-devel-2.17-260.el7.x86_64.rpm
+glibc-headers-2.17-260.el7.x86_64.rpm
+libstdc++-4.8.5-36.el7.x86_64.rpm
+ 
+rpm -Uvh --force --nodeps glibc*.rpm
+rpm -Uvh --force --nodeps libstdc++-4.8.5-36.el7.x86_64.rpm
+ 
+# 这个可以选择安装
+rpm -Uvh --force --nodeps nscd-2.17-260.el7.x86_64.rpm
+ 
+#安装openssl，不然wget会有问题，python3也有依赖
+openssl-1.0.1e-57.el6.x86_64.rpm
+openssl-devel-1.0.1e-57.el6.x86_64.rpm
+ 
+rpm -Uvh --force --nodeps openssl*.rpm
+```
+
+
+
+## 查找文件
+
+```sh
+find / -name tk8.5
+usr/lib64/tk8.5
+
+find / -name tcl8.5
+/usr/share/tcl8.5
+```
+
+
+
+## **配置jupyter notebook远程可访问（如果需要）**
+
+```sh
+#初始化jupyter配置文件
+jupyter notebook --generate-config
+#生成密码
+jupyter notebook password
+ 
+ # 注意目录根据自己实际确定
+$vim ~/.jupyter/jupyter_notebook_config.py
+ 
+c.NotebookApp.ip='你机器的监控ip'
+c.NotebookApp.ip='*'
+c.NotebookApp.allow_remote_access = True
+c.NotebookApp.password = u'sha:ce...刚才复制的那个密文'
+c.NotebookApp.open_browser = False
+c.NotebookApp.port =8888 #随便指定一个端口
+
+# 开启代码补全
+# 1.  安装显示目录功能 pip install jupyter_contrib_nbextensions 
+# 2. 安装 nbextention     jupyter contrib nbextension install --user --skip-running-check 
+# 3. 启动 Jupyter Notebook，上面选项栏会出现 Nbextensions 的选项，并勾选 Hinterland
+```
 

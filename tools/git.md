@@ -25,8 +25,9 @@ git commit -a -m 'skip add steps'
 ### 二、版本库常用操作
 
 ```shell
-git status             # 查看工作区状态
-git diff <file>        # 如果工作区有被修改，可以用该命令查看修改内容
+git status                         # 查看工作区状态
+git status -sb -uno --show-stash   # 更友好的输出格式显示
+git diff <file>                    # 如果工作区有被修改，可以用该命令查看修改内容
 ```
 
 #### 版本回退
@@ -56,7 +57,7 @@ git reset HEAD <file>       # 用于丢弃暂存区的修改，回到了可以�
 
 #### 删除文件
 
-```
+```sh
 git rm         # 用于删除文件
 ```
 
@@ -68,7 +69,9 @@ ssh-keygen -t rsa -C "email@example.com"    # 生成id_rsa和id_raa.pub文件
 git remote add origin git@github.com:michaelliao/learn.git    # 将本地库和远程库进行关联
 git push -u origin master          # 第一次推送master到远程，-u参数关联本地分支和远程分支
 git push origin master             # 之后推送master到远程
+git push <remote hostname> <local branch>:<remote branch>
 git clone url                      # 从远程克隆一个仓库到本地
+																	 # 使用ssh，而不是https，可以避免每次都输入密码
 ```
 
 ### 四、分支管理
@@ -77,12 +80,14 @@ git clone url                      # 从远程克隆一个仓库到本地
 
 ```shell
 git branch                        # 查看所有分支
+git branch -a -v                  # 查看本地和远程所有分支，并显示最后一次提交信息
 git branch <name>                 # 创建分支
 git checkout <name>               # 切换分支
 git checkout -b dev               # 创建+切换分支
 git merge <name>                  # 合并某分支到当前分支
 git branch -d <name>              # 删除分支
 
+git log --oneline --graph         # 查看日志
 git log --graph --pretty=oneline --abbrev-commit   # 查看分支的合并情况
 
 git merge --no-ff -m "merge with no-ff" <name>     # 使用no ff方式进行合并，保留分支信息
@@ -99,6 +104,7 @@ git branch -D <name>              # 强行删除未合并的分支，如feature�
 git remote                        # 查看远程库的信息
 git remote -v                     # 查看远程库详细信息
 git remote rm origin              # 删除已有的远程库origin
+git remote update origin          # 本地拉取远程的更新
 git branch -a                     # 查看远程库的分支信息
 git push origin branch-name       # 推送本地信息到远端分支
 git pull                          # 上条推送失败，则需要先抓取远程的新提交
@@ -156,9 +162,29 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
 
 
-
-
-
+- 拉取远程指定分支
+  - https://zj-git-guide.readthedocs.io/zh_CN/latest/advanced/%E6%8B%89%E5%8F%96%E6%8C%87%E5%AE%9A%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E5%88%B0%E6%9C%AC%E5%9C%B0/
+  
+  - 新建仓库
+  
+    ```shell
+    $ mkdir gitrepo
+    $ cd giterpo
+    $ git init
+    ```
+  
+    拉取远程指定分支
+  
+    ```sh
+    $ git remote add origin https://github.com/zjZSTU/zjzstu.github.com.git
+    $ git fetch origin dev
+    ```
+  
+    新建本地分支并关联到指定远程分支
+  
+    ```shell
+    $ git checkout -b dev origin/dev
+    ```
 
 
 

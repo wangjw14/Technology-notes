@@ -10,7 +10,13 @@
   sys.stderr = codecs.getwriter('gb18030')(sys.stderr)
   ```
 
+- python3
 
+  ```python
+  import io
+  sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8') 
+  sys.stdin = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8') 
+  ```
 
 ## SimpleHTTPServer
 
