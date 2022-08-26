@@ -15,7 +15,7 @@ alias pip3="/ssd3/work/wangjingwen03/python_env_3/bin/pip"
 
 
 #hadoop
-alias hadoopyinglong="hadoop fs -D hadoop.job.ugi=rmp-mixer,rmp-mixer-passwd -D fs.default.name=afs://yinglong.afs.baidu.com:9902"
+alias hadoopyinglong="hadoop fs -D hadoop.job.ugi=xx,xx -D fs.default.name=afs://yinglong.afs.baidu.com:9902"
 alias hadoopocr="hadoop fs -conf /home/work/wangjingwen03/git_repo/wangjingwen03/short_video_segment/shuaku/hadoop_script_ocr_get/hadoop-site.xml"
 alias hadoopbaihua="hadoop fs -conf /home/work/wangjingwen03/git_repo/wangjingwen03/short_video_segment/shuaku/hadoop_script_page_B/hadoop-site.xml"
 ```
