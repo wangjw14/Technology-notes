@@ -35,8 +35,8 @@ class SendEmail(object):
         cont = unicode(content, "utf-8", "ignore")
         msg = MIMEMultipart('alternative')
         if dst == "all":
-            dst = ['zhangqing17@baidu.com', 'zhengchuanchuan@baidu.com', 'yutianbao@baidu.com', 'wujiangwei@baidu.com', 'qibingjie@baidu.com', 'yunting@baidu.com']
-            # dst = ['qibingjie@baidu.com']
+            dst = ['xxx@xxx.com']
+            # dst = ['xxx@baidu.com']
         msg['Subject'] = unicode(title, "utf-8", "ignore")
         msg['From'] = src
         msg['To'] = ','.join(dst)
