@@ -7,6 +7,8 @@
 ```shell
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
+git config --local user.name "wangjingwen03"
+git config --local user.email "wangjingwen03@baidu.com"
 git config --list
 
 git <verb> --help             # 获取帮助
@@ -65,13 +67,14 @@ git rm         # 用于删除文件
 
 ```shell
 ssh-keygen -t rsa -C "email@example.com"    # 生成id_rsa和id_raa.pub文件
+ssh-keygen -t rsa -C 'wangjingwen03@baidu.com' -f ~/.ssh/id_rsa.wangjingwen03
 # 在github或者gitlab上将公钥添加到账户，并创建仓库
 git remote add origin git@github.com:michaelliao/learn.git    # 将本地库和远程库进行关联
 git push -u origin master          # 第一次推送master到远程，-u参数关联本地分支和远程分支
 git push origin master             # 之后推送master到远程
 git push <remote hostname> <local branch>:<remote branch>
 git clone url                      # 从远程克隆一个仓库到本地
-																	 # 使用ssh，而不是https，可以避免每次都输入密码
+                                # 使用ssh，而不是https，可以避免每次都输入密码
 ```
 
 ### 四、分支管理
@@ -142,67 +145,47 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 ### git技巧
 
 - git clone加速
-
-    ```sh
-    # socks5协议，1080端口修改成自己的本地代理端口（使用shadowsocks时，使用下面的命令）
-    git config --global http.https://github.com.proxy socks5://127.0.0.1:7891
-    git config --global https.https://github.com.proxy socks5://127.0.0.1:7891
-    
-    # http协议，1081端口修改成自己的本地代理端口
-    git config --global http.https://github.com.proxy https://127.0.0.1:7890
-    git config --global https.https://github.com.proxy https://127.0.0.1:7890
-    
-    # 使用https的网址，进行git clone。
-    git clone https://github.com/wangjw14/Summary-notes.git
-    ```
+  
+  ```sh
+  # socks5协议，1080端口修改成自己的本地代理端口（使用shadowsocks时，使用下面的命令）
+  git config --global http.https://github.com.proxy socks5://127.0.0.1:7891
+  git config --global https.https://github.com.proxy socks5://127.0.0.1:7891
+  
+  # http协议，1081端口修改成自己的本地代理端口
+  git config --global http.https://github.com.proxy https://127.0.0.1:7890
+  git config --global https.https://github.com.proxy https://127.0.0.1:7890
+  
+  # 使用https的网址，进行git clone。
+  git clone https://github.com/wangjw14/Summary-notes.git
+  ```
 
 - 同一客户端下使用多个git账号
-
-    - https://www.jianshu.com/p/89cb26e5c3e8
-
-
+  
+  - https://www.jianshu.com/p/89cb26e5c3e8
 
 - 拉取远程指定分支
+  
   - https://zj-git-guide.readthedocs.io/zh_CN/latest/advanced/%E6%8B%89%E5%8F%96%E6%8C%87%E5%AE%9A%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E5%88%B0%E6%9C%AC%E5%9C%B0/
   
   - 新建仓库
-  
+    
     ```shell
     $ mkdir gitrepo
     $ cd giterpo
     $ git init
     ```
-  
+    
     拉取远程指定分支
-  
+    
     ```sh
     $ git remote add origin https://github.com/zjZSTU/zjzstu.github.com.git
-    $ git fetch origin dev
+    $ git remote add origin ssh://wangjingxxx@icode.XXXX/xxx/feed-cv/semantic
+    $ # 执行安装hook代码
+    ¥ git fetch origin dev
     ```
-  
+    
     新建本地分支并关联到指定远程分支
-  
+    
     ```shell
     $ git checkout -b dev origin/dev
     ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,9 +1,27 @@
 # Python skills
 
+## 获取当前文件的路径
+
+```python
+cur_dir = os.path.abspath(os.path.dirname(__file__))
+```
+
+## 设置参数
+
+```python
+import argparse
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--type', type=str, default='page_B')
+parser.add_argument('--input', type=str)
+
+args = parser.parse_args()
+```
+
 ## 标准输入改变编码
 
 - python2
-
+  
   ```python
   sys.stdin = codecs.getreader('gb18030')(sys.stdin)
   sys.stdout = codecs.getwriter('gb18030')(sys.stdout)
@@ -11,7 +29,7 @@
   ```
 
 - python3
-
+  
   ```python
   import io
   sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8') 
@@ -21,13 +39,13 @@
 ## SimpleHTTPServer
 
 - python2
-
+  
   ```python
   python -m SimpleHttpServer 8000
   ```
 
 - python3
-
+  
   ```python
   python3 -m http.server 8000
   
@@ -40,14 +58,10 @@
   # tera信息，每行一个json串
   http://10.255.120.19:8011/shuaku/tera_data/top1_batch2_5w.json
   ```
-  
-  
 
 ## pytorch不同版本加载模型问题
 
 https://blog.csdn.net/lbj1260200629/article/details/109848137
-
-
 
 ### Itertool functions
 
@@ -117,8 +131,6 @@ return
 ('A', 'B', 'C')
 ```
 
-
-
 ### Numpy one-hot embedding
 
 ```python
@@ -128,29 +140,8 @@ def one_hot(t, class_num):
     return res
 ```
 
+## list 维度转换
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```python
+bert_inputs, grid_labels, grid_mask2d = map(list, zip(*data))
+```
