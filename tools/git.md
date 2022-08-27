@@ -8,7 +8,7 @@
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
 git config --local user.name "wangjingwen03"
-git config --local user.email "wangjingwen03@baidu.com"
+git config --local user.email "wangjingwen03@xx.com"
 git config --list
 
 git <verb> --help             # 获取帮助
@@ -67,7 +67,7 @@ git rm         # 用于删除文件
 
 ```shell
 ssh-keygen -t rsa -C "email@example.com"    # 生成id_rsa和id_raa.pub文件
-ssh-keygen -t rsa -C 'wangjingwen03@baidu.com' -f ~/.ssh/id_rsa.wangjingwen03
+ssh-keygen -t rsa -C 'wangjingwen03@xx.com' -f ~/.ssh/id_rsa.wangjingwen03
 # 在github或者gitlab上将公钥添加到账户，并创建仓库
 git remote add origin git@github.com:michaelliao/learn.git    # 将本地库和远程库进行关联
 git push -u origin master          # 第一次推送master到远程，-u参数关联本地分支和远程分支
