@@ -189,3 +189,12 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
     ```shell
     $ git checkout -b dev origin/dev
     ```
+
+- Hi wangjw14! You've successfully authenticated, but GitHub does not provide shell access.
+
+  ```sh
+  git remote set-url origin git@github.com:wangjw14/Technology-notes.git
+  # https://stackoverflow.com/questions/26953071/github-authentication-failed-github-does-not-provide-shell-access
+  ```
+
+  
