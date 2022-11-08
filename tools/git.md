@@ -7,6 +7,8 @@
 ```shell
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
+git config --local user.name "wangjw14"
+git config --local user.email "wang.jingwen@outlook.com"
 git config --local user.name "wangjingwen03"
 git config --local user.email "wangjingwen03@xx.com"
 git config --list
@@ -195,6 +197,12 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
   ```sh
   git remote set-url origin git@github.com:wangjw14/Technology-notes.git
   # https://stackoverflow.com/questions/26953071/github-authentication-failed-github-does-not-provide-shell-access
+  ```
+
+- git 解决中文乱码
+
+  ```shell
+  git config --global core.quotepath false
   ```
 
   
