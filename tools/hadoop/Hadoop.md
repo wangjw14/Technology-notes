@@ -15,4 +15,30 @@ hadoop  distcp -D mapred.output.compress=false  -i -su "xxx,xxx" -du "dddd,dddd"
 
 - 在启动时，指定SuffixMultipleTextOutputFormat或者 SuffixMultipleSequenceFileOutputFormat
 
+  ```shell
+  # 前者对应于文本输入，后者于二进制输入
+  -outputformat org.apache.hadoop.mapred.lib.SuffixMultipleTextOutputFormat
+  -outputformat org.apache.hadoop.mapred.lib.SuffixMultipleSequenceFileOutputFormat
+  
+  ```
+
+  
+
+
+
+## Hadoop多列排序
+
+```sh
+bin/hadoop streaming -input /tmp/comp-test.txt -output /tmp/xx -mapper cat -reducer cat \
+-partitioner org.apache.hadoop.mapred.lib.KeyFieldBasedPartitioner \
+-jobconf stream.num.map.output.key.fields=2 \
+-jobconf num.key.fields.for.partition=1 \
+-jobconf stream.map.output.field.separator=. \
+-jobconf map.output.key.field.separator=. \
+-jobconf mapred.reduce.tasks=5
+```
+
+
+
+- https://www.cnblogs.com/van19/p/5756448.html
 
