@@ -42,3 +42,13 @@ bin/hadoop streaming -input /tmp/comp-test.txt -output /tmp/xx -mapper cat -redu
 
 - https://www.cnblogs.com/van19/p/5756448.html
 
+
+
+## Hadoop 获取文件名
+
+```python
+filename = os.getenv("map_input_file")
+```
+
+
+
