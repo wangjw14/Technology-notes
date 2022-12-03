@@ -255,6 +255,7 @@ cur_dir=$(dirname $(readlink -f "$0"))   # 当前文件的路径
 
 ```shell
 lsb_release -a
+uname -a
 ```
 
 ## 设置语言编码
@@ -344,3 +345,25 @@ du -sh * | sort -nr
 du -h --max-depth=1
 du -h --max-depth=1 | grep [TG] |sort
 ```
+
+## free
+
+```sh
+# 检查机器的内存
+free -h
+```
+
+## df 
+
+```sh
+# 查看磁盘空间
+df -h
+```
+
+## netstat
+
+```sh
+# 查看端口信息
+netstat -ntlp
+```
+

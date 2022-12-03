@@ -35,6 +35,8 @@ Allen AI: Iz Beltagy, Matthew E. Peters, Arman Cohan
 
 - ![Longformer](./pics/Longformer.png)
 
+- 目前的pytorch、tf，不支持banded 矩阵乘法，因此需要自行实现cuda编程
+
 
 
 

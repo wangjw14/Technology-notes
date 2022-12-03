@@ -206,3 +206,46 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
   ```
 
   
+
+## 实用github技巧
+
+1. 直接进行搜索
+
+   - 【S】键，直接开始搜索
+
+     ```sh
+     spring vue stars:>1000 pushed:>2022-05-02 language:Java
+     ```
+
+   - Advanced search
+
+2. 文件查看技巧
+
+   - 【T】键，实时搜索仓库内文件
+   - 【L】键，快速跳转到某一行
+   - 【B】键，快速查看文件改动记录
+   - 点击行号，可以快速复制这行代码、生成链接
+
+3. 阅读代码技巧
+
+   - 【。】键，代码在网页端vscode编辑器打开
+
+4. 在线运行项目
+
+   - 项目地址前，加上`gitpod.io/#`，如`https://gitpod.io/#/github.com/liyupi/good-name`
+
+   - 网页编辑器识别代码类型，并自动安装了依赖包
+
+5. 项目推送
+
+   - get email updates
+
+
+
+## git学习资源
+
+- 官方hello word教程
+- github漫游指南
+- 开源指北
+- git 官方文档
+- github 官方文档
