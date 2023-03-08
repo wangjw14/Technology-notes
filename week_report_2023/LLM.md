@@ -23,7 +23,7 @@
 - 时间范围：在GPT3.0出现之后（20年6月左右），一直到目前为止，我们应该正处于这个范式转换过程中。
 - 为什么LLM都是GPT式的自回归模型
   1. NLG可以兼容NLU，反之则不行
-  2. 生成模型更容易做好zero shot/few shot prompting方式的任务，而Bert模式以这种方式做任务，是天然有劣势的（参考：On the Role of Bidirectionality in Language Model Pre-Training）
+  2. 生成模型更容易做好zero shot/few shot prompting方式的任务，而Bert模式以这种方式做任务，是天然有劣势的。paper：On the Role of Bidirectionality in Language Model Pre-Training
 - 为什么我们要追求zero shot/few shot prompting这种方式来做任务呢？
   - LLM应该具备强大的自主学习能力，可以学习各种类型的知识，导致LLM必然是巨无霸
   - 当我们使用LLM解决某个具体领域问题的时候，应该用我们人类习惯的表达方式，就是说LLM应该理解人类的命令。
@@ -39,18 +39,19 @@
 ### 2.1 LLM从海量数据中学到了什么知识？
 
 - 可以分为**语言类知识**和**世界知识**两大类。
-  - 语言类知识：指的是词法、词性、句法、语义等有助于人类或机器理解自然语言的知识。
+  - **语言类知识**：指的是词法、词性、句法、语义等有助于人类或机器理解自然语言的知识。
     - 浅层语言知识比如词法、词性、句法等知识存储在Transformer的低层和中层，而抽象的语言知识比如语义类知识，广泛分布在Transformer的中层和高层结构中。
-  - 世界知识：指的是在这个世界上发生的一些真实事件（事实型知识，Factual Knowledge），以及一些常识性知识(Common Sense Knowledge)
+  - **世界知识**：指的是在这个世界上发生的一些真实事件（事实型知识，Factual Knowledge），以及一些常识性知识(Common Sense Knowledge)
     - LLM确实从训练数据中吸收了大量世界知识，而这类知识主要分布在Transformer的中层和高层，尤其聚集在中层。而且，随着Transformer模型层深增加，能够学习到的知识数量逐渐以指数级增加
     - 把LLM看作是一种以模型参数体现的隐式知识图谱
-    - 对于Bert类型的语言模型来说，只用1000万到1亿单词的语料，就能学好句法语义等语言学知识，但是要学习事实类知识，则要更多的训练数据。（When Do You Need Billions of Words of Pre-training Data?）
+    - 对于Bert类型的语言模型来说，只用1000万到1亿单词的语料，就能学好句法语义等语言学知识，但是要学习事实类知识，则要更多的训练数据。
+    - paper：When Do You Need Billions of Words of Pre-training Data?
 
 ### 2.2 LLM又是如何存取这些知识的？
 
 - 多头注意力（MHA）部分占了大约参数总体的三分之一，三分之二的参数集中在FFN结构中。
 - MHA主要用于计算单词或知识间的相关强度，并对全局信息进行集成，更可能是在建立知识之间的联系，大概率不会存储具体知识点，那么很容易推论出LLM模型的知识主体是存储在Transformer的FFN结构里。
-- paper：“Transformer Feed-Forward Layers Are Key-Value Memories”给出了一个比较新颖的观察视角，它把Transformer的FFN看成存储大量具体知识的Key-Value存储器
+- paper：Transformer Feed-Forward Layers Are Key-Value Memories，给出了一个比较新颖的观察视角，它把Transformer的FFN看成存储大量具体知识的Key-Value存储器
 
 
 
@@ -72,7 +73,7 @@
 - 直接修改LLM里某些知识对应的模型参数来修正知识。
   - 如何在LLM参数空间中定位某条知识的具体存储位置；
   - 如何修正模型参数，来实现旧知识到新知识的修正。
-  - 可以参考“Locating and Editing Factual Associations in GPT”和“Mass-Editing Memory in a Transformer”。理解这个修正LLM知识的过程，其实对于更深入理解LLM的内部运作机制是很有帮助的。
+  - paper：Locating and Editing Factual Associations in GPT”和“Mass-Editing Memory in a Transformer。理解这个修正LLM知识的过程，其实对于更深入理解LLM的内部运作机制是很有帮助的。
 
 
 
