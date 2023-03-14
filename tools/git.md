@@ -137,6 +137,10 @@ git push origin :refs/tags/<tagname>  # 删除一个远程标签
 git add -f <filename>            # 强制将.gitignore文件中的文件加入暂存区
 git check-ignore -v <filename>   # 检查.gitignore文件中哪个规则忽略了文件
 
+# ignore all except .gitignore file
+*
+!.gitignore
+
 git config --global alias.co checkout           # 为git命令添加别名
 git config --global alias.cm commit             # 每个仓库的git配置文件位置：.git/config
 git config --global alias.unstage 'reset HAED'  # 当前用户的git配置文件位置：~/.gitconfig
@@ -183,7 +187,7 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
     $ git remote add origin https://github.com/zjZSTU/zjzstu.github.com.git
     $ git remote add origin ssh://wangjingxxx@icode.XXXX/xxx/feed-cv/semantic
     $ # 执行安装hook代码
-    ¥ git fetch origin dev
+    $ git fetch origin dev
     ```
     
     新建本地分支并关联到指定远程分支
@@ -249,3 +253,4 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 - 开源指北
 - git 官方文档
 - github 官方文档
+

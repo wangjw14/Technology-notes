@@ -310,6 +310,9 @@ usr/lib64/tk8.5
 
 find / -name tcl8.5
 /usr/share/tcl8.5
+
+find . -name "*.c"
+
 ```
 
 ## 配置jupyter notebook远程可访问（如果需要）
