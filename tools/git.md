@@ -7,6 +7,8 @@
 ```shell
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
+git config --local user.name "wangjw14"
+git config --local user.email "wang.jingwen@outlook.com"
 git config --local user.name "wangjingwen03"
 git config --local user.email "wangjingwen03@xx.com"
 git config --list
@@ -135,6 +137,10 @@ git push origin :refs/tags/<tagname>  # 删除一个远程标签
 git add -f <filename>            # 强制将.gitignore文件中的文件加入暂存区
 git check-ignore -v <filename>   # 检查.gitignore文件中哪个规则忽略了文件
 
+# ignore all except .gitignore file
+*
+!.gitignore
+
 git config --global alias.co checkout           # 为git命令添加别名
 git config --global alias.cm commit             # 每个仓库的git配置文件位置：.git/config
 git config --global alias.unstage 'reset HAED'  # 当前用户的git配置文件位置：~/.gitconfig
@@ -181,7 +187,7 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
     $ git remote add origin https://github.com/zjZSTU/zjzstu.github.com.git
     $ git remote add origin ssh://wangjingxxx@icode.XXXX/xxx/feed-cv/semantic
     $ # 执行安装hook代码
-    ¥ git fetch origin dev
+    $ git fetch origin dev
     ```
     
     新建本地分支并关联到指定远程分支
@@ -189,3 +195,62 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
     ```shell
     $ git checkout -b dev origin/dev
     ```
+
+- Hi wangjw14! You've successfully authenticated, but GitHub does not provide shell access.
+
+  ```sh
+  git remote set-url origin git@github.com:wangjw14/Technology-notes.git
+  # https://stackoverflow.com/questions/26953071/github-authentication-failed-github-does-not-provide-shell-access
+  ```
+
+- git 解决中文乱码
+
+  ```shell
+  git config --global core.quotepath false
+  ```
+
+  
+
+## 实用github技巧
+
+1. 直接进行搜索
+
+   - 【S】键，直接开始搜索
+
+     ```sh
+     spring vue stars:>1000 pushed:>2022-05-02 language:Java
+     ```
+
+   - Advanced search
+
+2. 文件查看技巧
+
+   - 【T】键，实时搜索仓库内文件
+   - 【L】键，快速跳转到某一行
+   - 【B】键，快速查看文件改动记录
+   - 点击行号，可以快速复制这行代码、生成链接
+
+3. 阅读代码技巧
+
+   - 【。】键，代码在网页端vscode编辑器打开
+
+4. 在线运行项目
+
+   - 项目地址前，加上`gitpod.io/#`，如`https://gitpod.io/#/github.com/liyupi/good-name`
+
+   - 网页编辑器识别代码类型，并自动安装了依赖包
+
+5. 项目推送
+
+   - get email updates
+
+
+
+## git学习资源
+
+- 官方hello word教程
+- github漫游指南
+- 开源指北
+- git 官方文档
+- github 官方文档
+
