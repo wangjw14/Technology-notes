@@ -409,3 +409,9 @@ df -h
 netstat -ntlp
 ```
 
+## 批量杀死进程
+
+```sh
+ps -ef | grep ld-linux-x86-64 | awk '{print $2}' | head -2 | xargs  kill -9
+```
+
