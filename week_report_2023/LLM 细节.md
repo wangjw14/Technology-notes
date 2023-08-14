@@ -4,6 +4,8 @@
 
 - lamda、chatGLM、llama2
 - 文章：分布式训练、参数计算、实验
+- flashattention
+- group attention
 - 实验
   - post pretrain，sft
   - 数据量多少，训练时长
@@ -24,36 +26,9 @@
 - 左padding还是右padding
 
 - model.eval()
-- flashattention
 
 - 主动学习
 - instrcutgpt精读：https://blog.csdn.net/qq_56591814/article/details/130588064
-
-
-
-
-
-## 大模型的细节
-
-
-
-
-
-
-
-## LLM的分布式训练
-
-
-
-
-
-
-
-## LLM的参数高效微调
-
-
-
-
 
 
 
@@ -185,5 +160,9 @@
     
   ```
 
-  
+- generate的API
+
+  <img src="pics/generate-1.png" alt="generate-0" style="zoom:50%;" />
+
+  <img src="pics/generate-0.png" alt="generate-0" style="zoom:50%;" />
 
