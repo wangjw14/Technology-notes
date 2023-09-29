@@ -576,3 +576,6 @@ valdata.save_to_disk('./c4_val')
 
 ```
 
+- 一个工具下载
+  - https://huggingface.co/docs/huggingface_hub/v0.17.1/en/guides/download
+
