@@ -1,11 +1,11 @@
 # LLM 细节
 
 - webGPT，webGLM，chatlaw，ACL-检索增强对话
-
 - lamda、chatGLM、llama2
 - 文章：分布式训练、参数计算、实验
 - flashattention
 - group attention
+- 不同model的各种参数
 - 实验
   - post pretrain，sft
   - 数据量多少，训练时长
