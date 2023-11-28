@@ -415,3 +415,10 @@ netstat -ntlp
 ps -ef | grep ld-linux-x86-64 | awk '{print $2}' | head -2 | xargs  kill -9
 ```
 
+## ffmpeg
+
+```shell
+ffmpeg -ss [start_time] -to [end_time] -i [input_file] -c copy [output_file]
+ffmpeg -ss [start_time] -t [duration] -i [input_file] -c copy [output_file]
+```
+

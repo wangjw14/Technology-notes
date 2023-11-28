@@ -579,3 +579,20 @@ valdata.save_to_disk('./c4_val')
 - 一个工具下载
   - https://huggingface.co/docs/huggingface_hub/v0.17.1/en/guides/download
 
+- 下载工具
+
+  ```python
+  from huggingface_hub import snapshot_download
+  import argparse
+  import os
+  
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--repo_id', type=str)
+  parser.add_argument('--save_dir', type=str, default='/ssd2/llm_zoo/')
+  args = parser.parse_args()
+  save_path = os.path.join(args.save_dir, args.repo_id.split('/')[-1])
+  
+  snapshot_download(repo_id=args.repo_id, local_dir=save_path, local_dir_use_symlinks=False)
+  ```
+
+  
