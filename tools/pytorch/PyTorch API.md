@@ -1,5 +1,11 @@
 # PyTorch API
 
+- torch.backends.cuda.matmul.allow_tf32 = True
+  - 这行代码的作用是允许PyTorch在使用CUDA进行矩阵乘法运算时使用TensorFloat-32（TF32）精度。TF32是NVIDIA为其Ampere架构GPU（如NVIDIA A100）引入的一种新的浮点格式。
+  - 启用TF32通常会带来更快的性能，但可能会牺牲一些数值精度。如果严格的数值精度是必需的，那么可能需要将此选项设置为`False`以避免使用TF32。
+
+
+
 ## dataset
 
 - dataset：The `Dataset` retrieves our dataset’s features and labels one sample at a time. 
