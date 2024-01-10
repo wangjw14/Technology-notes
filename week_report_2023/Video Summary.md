@@ -201,3 +201,14 @@
     - 通过图网络，将不同文章的大纲进行交叉，得到新的大纲和文章
 
 - ![eval_metrics](pics/eval_metrics.png)
+
+
+
+**满意消费指标现状：非视频长点（40s 或 goal 末）+ 视频满意消费量**
+
+- 视频满意消费
+  - 端内：A + 导出BC页满意播放量（65s 或 70%，C页二跳满意播放算多个满意消费），如果是goal末点导出的落地页，则和非视频打平，只算一个满意消费。
+  - 端外：A页视频卡长点。
+- 修改后
+
+<img src="pics/video_summary_metrics_new.png" alt="video_summary_metrics_new" style="zoom:50%;" />
