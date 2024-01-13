@@ -244,7 +244,8 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
    - get email updates
 
-
+- git取消代理
+  - https://blog.csdn.net/qq_35812205/article/details/133801849
 
 ## git学习资源
 
