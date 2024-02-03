@@ -577,8 +577,9 @@ valdata.save_to_disk('./c4_val')
 ```
 
 - 一个工具下载
-  - https://huggingface.co/docs/huggingface_hub/v0.17.1/en/guides/download
-
+  
+- https://huggingface.co/docs/huggingface_hub/v0.17.1/en/guides/download
+  
 - 下载工具
 
   ```python
@@ -595,4 +596,14 @@ valdata.save_to_disk('./c4_val')
   snapshot_download(repo_id=args.repo_id, local_dir=save_path, local_dir_use_symlinks=False)
   ```
 
+  ```python
+  from huggingface_hub import snapshot_download
   
+  snapshot_download(repo_id='OpenAssistant/reward-model-deberta-v3-large-v2',
+                    repo_type='model',
+                    local_dir='./model_dir',
+                    resume_download=True)
+  ```
+  
+  
+

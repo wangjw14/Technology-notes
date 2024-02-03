@@ -422,3 +422,27 @@ ffmpeg -ss [start_time] -to [end_time] -i [input_file] -c copy [output_file]
 ffmpeg -ss [start_time] -t [duration] -i [input_file] -c copy [output_file]
 ```
 
+## 批量启动任务
+
+```sh
+for i in $(seq 0 7)
+do
+    echo $i
+    sed -i "12s/gpu: 0;1/gpu: ${i};1/" conf/models.conf
+    sed -i "4s/port: 8700/port: 870$i/" conf/service.conf
+    sh bin/control.sh restart --platform=gpu_a10
+    sed -i "12s/gpu: ${i};1/gpu: 0;1/" conf/models.conf
+    sed -i "4s/port: 870$i/port: 8700/" conf/service.conf
+done
+
+# 批量调用
+
+for i in $(seq 0 7)
+do 
+    python3 req_summary_V1.py $i &
+done
+
+wait
+
+```
+
