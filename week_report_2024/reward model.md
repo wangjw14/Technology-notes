@@ -12,6 +12,14 @@
 
 
 
+|      | loss                                                         |
+| ---- | ------------------------------------------------------------ |
+| RM   | $\max _{r_\phi}\left\{\mathbb{E}_{\left(x, y_{\text {win }}, y_{\text {lose }}\right) \sim \mathcal{D}}\left[\log \sigma\left(r_\phi\left(x, y_{\text {win }}\right)-r_\phi\left(x, y_{\text {lose }}\right)\right)\right]\right\}$ |
+| PPO  | $\max _{\pi_\theta}\left\{\mathbb{E}_{x \sim \mathcal{D}, y \sim \pi_\theta(y \mid x)}\left[r_\phi(x, y)\right]-\beta \mathbb{D}_{\mathrm{KL}}\left[\pi_\theta(y \mid x) \| \pi_{\mathrm{ref}}(y \mid x)\right]\right\}$ |
+| DPO  | $\max _{\pi_\theta}\left\{\mathbb{E}_{\left(x, y_{\text {win }}, y_{\text {lose }}\right) \sim \mathcal{D}}\left[\log \sigma\left(\beta \log \frac{\pi_\theta\left(y_{\text {win }} \mid x\right)}{\pi_{\text {ref }}\left(y_{\text {win }} \mid x\right)}-\beta \log \frac{\pi_\theta\left(y_{\text {lose }} \mid x\right)}{\pi_{\text {ref }}\left(y_{\text {lose }} \mid x\right)}\right)\right]\right\}$ |
+
+
+
 
 
 ```
