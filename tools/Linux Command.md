@@ -446,3 +446,18 @@ wait
 
 ```
 
+## tmux
+
+- https://www.ruanyifeng.com/blog/2019/10/tmux.html
+
+```shell
+新建会话tmux new -s my_session。
+在 Tmux 窗口运行所需的程序。
+按下快捷键Ctrl+b d将会话分离。
+下次使用时，重新连接到会话tmux attach-session -t my_session。
+```
+
+
+
+
+
