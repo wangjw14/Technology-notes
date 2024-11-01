@@ -209,6 +209,12 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
   git config --global core.quotepath false
   ```
 
+- 权限问题
+
+  ```shell
+  ssh-add ~/.ssh/id_rsa
+  ```
+
   
 
 ## 实用github技巧

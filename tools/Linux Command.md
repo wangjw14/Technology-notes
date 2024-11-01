@@ -77,6 +77,15 @@ sed -e '/abc/d'  a.txt  > a.log
 
 # 删除含字符串"abc"或“efg"的行，将结果保存到a.log
 sed '/abc/d;/efg/d' a.txt > a.log    
+
+# 替换行
+sed '3s/.*/new text/' input_file > output_file
+# 这里的3s/.*/new text/表示在第3行(3)进行替换(s/)，将整行(.*)替换成new text。
+
+# in-place 编辑
+sed -i 's/oldword/newword/g' input_file
+# 这里的g标志表示全局替换
+
 ```
 
 ## date
@@ -90,6 +99,13 @@ LOAD_DATE=$(date -d"2 day ago ${TODAY}" +%Y%m%d)
 
 ```shell
 sort [-r] temp/file1.txt -o temp/file1.txt
+```
+
+```shell
+sort -t$'\t' -k2,2gr data.txt > sorted_data.txt
+# -k2,2 指定按照第二列进行排序。
+# g 表示使用通用数字排序，这会将数字字符串按数值排序而不是字典排序。
+# r 表示逆序排序，即降序。
 ```
 
 
@@ -413,6 +429,7 @@ netstat -ntlp
 
 ```sh
 ps -ef | grep ld-linux-x86-64 | awk '{print $2}' | head -2 | xargs  kill -9
+ps -ef | grep ld-linux-x86-64 | awk '{print $2}' | xargs  kill -9
 ```
 
 ## ffmpeg
@@ -457,7 +474,29 @@ wait
 下次使用时，重新连接到会话tmux attach-session -t my_session。
 ```
 
+## yum
 
+```sh
+ls /etc/yum.repos.d/ # 查看有哪些源
+
+yum --disablerepo="cuda" --disablerepo="nvidia-ml" install  rlwrap # 禁用某些源
+```
+
+## grep
+
+```shell
+grep -wE "json_line|ids"
+# E 表示正则表达式
+# w 表示整个字符串匹配
+```
+
+
+
+## rm
+
+```shell
+find . -type f | xargs -r -n 1000 rm -f
+```
 
 
 
