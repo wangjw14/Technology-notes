@@ -498,5 +498,16 @@ grep -wE "json_line|ids"
 find . -type f | xargs -r -n 1000 rm -f
 ```
 
+## Mac 打开db
 
+```sh
+brew install db-browser-for-sqlite
+```
+
+## python 自带的虚拟环境
+
+```sh
+python -m venv myenv
+source myenv/bin/activate   # Linux/Mac
+```
 

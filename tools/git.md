@@ -213,8 +213,10 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
   ```shell
   ssh-add ~/.ssh/id_rsa
+  ssh -T git@github.com
+ssh-add ~/.ssh/tencent_github
   ```
-
+  
   
 
 ## 实用github技巧

@@ -145,3 +145,14 @@ def one_hot(t, class_num):
 ```python
 bert_inputs, grid_labels, grid_mask2d = map(list, zip(*data))
 ```
+
+## 多卡训练debug
+
+```python
+    from remote_pdb import RemotePdb
+    # 获取当前进程的 rank（假设使用 PyTorch 的分布式训练）
+    rank = int(os.environ.get("RANK", 0))  # 或者其他方式获取 rank
+    port = 4444 + rank  # 每个进程使用不同的端口
+    RemotePdb("0.0.0.0", port).set_trace()
+```
+
